@@ -3,9 +3,12 @@ import numpy as np
 from scipy.optimize import fsolve
 import requests
 import json
-import openpyxl
+import openpyxl as opxl
 
 print("Enter Airline Code: \nExample: DFW")
 airlineCode = input("Airline Code: ")
 
-airlineCodeList = openpyxl.load_workbook("airlineCodes.xlsx")
+path = "airlineCodes.xlsx"
+airlineCodeList = opxl.load_workbook(path)
+airports = airlineCodeList.active
+
