@@ -3,12 +3,12 @@ import numpy as np
 from scipy.optimize import fsolve
 import requests
 import json
-import openpyxl as opxl
+import csv
 
 print("Enter Airline Code: \nExample: DFW")
 airlineCode = input("Airline Code: ")
 
-path = "airlineCodes.xlsx"
-airlineCodeList = opxl.load_workbook(path)
-airports = airlineCodeList.active
-
+with open('Airport Codes by Country - Airport Codes List .csv', newline='') as csvfile:
+    reader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+    for row in reader:
+        print(', '.join(row))
