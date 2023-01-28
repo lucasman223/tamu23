@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+{
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "animate.css": "^4.1.1",
+    "loaders.css": "^0.1.2",
+    "react-leaflet": "^4.2.0"
+  }
+}
+=======
+{
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "animate.css": "^4.1.1",
+    "loaders.css": "^0.1.2",
+    "react-leaflet": "^4.2.0",
+    "react-loaders": "^3.0.1",
+    "react-router-dom": "^6.8.0"
+  }
+}
+>>>>>>> 3dc6ae3c20a94a9ae9efb929271ebcb28fa1e73a
