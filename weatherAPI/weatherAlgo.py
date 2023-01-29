@@ -2,7 +2,6 @@ import requests
 import json
 import censusgeocode as cg
 import csv
-import flightFinder
 from dotenv import load_dotenv
 import os
 
@@ -46,6 +45,9 @@ def calc(temp, wspeed, fcast, humid, re):
   if ('thunderstorms' in fcast):
     rating = rating - 2
     message.append("Presence of thunderstorms could cause delays")
+
+    # ADD STUFF TO ALGORITHM HEHE HAHA
+
   msglist = []
   msglist.append(rating)
   msglist.append(message)
