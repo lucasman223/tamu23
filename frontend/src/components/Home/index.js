@@ -1,15 +1,34 @@
-import './index.scss'
-import Sidebar from '../Sidebar'
+import './index.scss';
+import Sidebar from '../Sidebar';
 import { Outlet } from 'react-router-dom'
+import Layout from '../Layout';
+
+import { useSpring, animated } from '@react-spring/web'
 
 const Home = () => {
+    const springs = useSpring({
+        from: { x: 0 },
+        to: { x: 100 },
+      })
+
     return (
-        <><Sidebar /><div className='container home-page'>
+            
+
+            <><Layout /><div className='container home-page'>
             <div className='text-zone'>
-                <h1>Product Name, <br /> Enter <br /> your flight number
-                </h1>
+            <animated.div
+            style={{
+              width: 250,
+              height: 500,
+              borderRadius: 8,
+              ...springs,
+            }}
+          ><h1>Product Name, SHort Description of Prigram
+                </h1></animated.div>
             </div>
-        </div></>
+            
+        </div>
+        </>
     )
 }
 
