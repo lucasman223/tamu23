@@ -1,0 +1,28 @@
+.result-page {
+
+    .percent-zone{
+        position: absolute;
+        left: 10%;
+        top:10%;
+        width: 50%;
+        font-size: 50px;
+        
+    }
+    .text-zone{
+    position: absolute;
+        left: 10%;
+        top:40%;
+        width: 50%;
+        font-size: 30px;
+
+    }
+    .bullet-zone{
+        position: absolute;
+        left: 60%;
+        top:25%;
+        width: 30%;
+        height: 100%;
+        font-size: 30px;
+    }
+
+}
