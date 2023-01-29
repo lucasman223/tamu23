@@ -32,7 +32,10 @@ function App() {
   const [getMessage, setGetMessage] = useState({})
 
   useEffect(()=>{
-    axios.get('http://localhost:5000/flask/hello').then(response => {
+    axios.post('http://localhost:5000', {
+    fnum: '123',
+    date: '13/22/22'
+    }).then(response => {
       console.log("SUCCESS", response)
       setGetMessage(response)
     }).catch(error => {
