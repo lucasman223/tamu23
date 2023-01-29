@@ -1,6 +1,9 @@
 import './index.scss';
+<<<<<<< HEAD
 import React, {Fragment, useState} from 'react'
 
+=======
+>>>>>>> 3b94470f8afc8a2c4dbb62e93cfd7797ce09b3f5
 
 const About = () => {
     const [ toggleTab, setToggleTab] = useState()
@@ -80,7 +83,7 @@ export default About
 /*
 export default function About() {
     return (
-        <div>
+        <div className='container about-page'>
             <h1>About Page</h1>
             <div>
                 this is random text
