@@ -24,7 +24,7 @@ const Home = () => {
               borderRadius: 8,
               ...springs,
             }}
-          ><h1>Product Name, SHort Description of Prigram
+          ><h1>Product Name, Short Description of Program
                 </h1></animated.div>
 
                 <div className="form-group">
