@@ -4,20 +4,12 @@ import { Outlet } from 'react-router-dom'
 
 const Home = () => {
     return (
-        <div className='App'>
-            <Sidebar />
-            <div className='page'>
-                <span className='tags top tags'>&lt;body&gt;</span>
-
-                <Outlet/>
-
-                <span className='tags bottom tags'>
-                    &lt;/body&gt;
-                    <br />
-                    <span className='bottom-tag-html'>&lt;/html&gt;</span>
-                </span>
+        <><Sidebar /><div className='container home-page'>
+            <div className='text-zone'>
+                <h1>Product Name, <br /> Enter <br /> your flight number
+                </h1>
             </div>
-        </div>
+        </div></>
     )
 }
 
