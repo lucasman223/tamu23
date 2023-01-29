@@ -3,87 +3,12 @@ import json
 import censusgeocode as cg
 import csv
 import flightFinder
+from dotenv import load_dotenv
+import os
 
-flights = flightFinder.flightData
-print("Enter Airline Code: \nExample: DFW")
-airlineCode = input("Flight number: ")
-for i in flights:
-    if (i[0] in airlineCode):
-        airlineCode = i[1]
-
-airlineCity = ""
-
-with open('weatherAPI/Airport Codes by Country - Airport Codes List .csv', newline='') as csvfile:
-    reader = csv.reader(csvfile)
-    for row in reader:
-        # print(row[2])
-        if (row[2] == airlineCode):
-            airlineCity = row[0]
-            break
-
-print("\n")
-print(airlineCity)
-
-geocodingAPIGrab = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + airlineCity + '&key=AIzaSyA_C9RGL8hIhcIR0MhjV-mv4x2ALYDNfSU')
-jsonconvert = geocodingAPIGrab.json()
-
-longitude = "%.4f" % jsonconvert['results'][0]['geometry']['location']['lng']
-latitude = "%.4f" % jsonconvert['results'][0]['geometry']['location']['lat']
-
-# print("TEST lat & lng")
-# print(latitude)
-# print(longitude)
-
-weatherAPIGrab = requests.get('https://api.weather.gov/points/' + latitude + "," + longitude)
-weatherJSON = weatherAPIGrab.json()
-
-forecastAPIGrab = requests.get(weatherJSON['properties']['forecast'])
-forecastJSON = forecastAPIGrab.json()
-
-temperatures = []
-windSpeeds = []
-forecasts = []
-windDir = []
-humidities = []
-
-# 
-# LISTS OF TEMPS, WIND SPEEDS, FORECASTS, WIND DIRECTION ARE ORGANIZED STARTING WITH
-# THIS AFTERNOON, TONIGHT, TOMORROW AFTERNOON, TOMORROW NIGHT, ... FOR A WEEK 
-# 
-
-for i in range(0,7):
-    windSpeeds.append(forecastJSON['properties']['periods'][i*2]['windSpeed'])
-    temperatures.append(forecastJSON['properties']['periods'][i*2]['temperature'])
-    forecasts.append(forecastJSON['properties']['periods'][i*2]['detailedForecast'])
-    windDir.append(forecastJSON['properties']['periods'][i*2]['windDirection'])
-
-print("Temperatures: ")
-print(temperatures)
-print("\n")
-
-print("Wind Speeds: ")
-print(windSpeeds)
-print("\n")
-
-print(forecasts)
-print("\n")
-
-print(windDir)
-print("\n")
-
-openWeatherAppAPIGrab = requests.get('https://api.openweathermap.org/data/3.0/onecall?lat=' + latitude + '&lon=' + longitude + '&exclude=minutely,hourly,alerts,current&units=imperial&appid=8da0b7e95b9d416ae92fc999445bc7fc')
-openJSON = openWeatherAppAPIGrab.json()
-
-for i in range(0,7):
-    humidities.append(openJSON['daily'][i]['humidity'])
-
-print(humidities)
-
-# humidities will be 0-7, 0 being the current day
-
-# temperatures, windSpeeds, forecasts, windDir, humidities
-# 
-# snow, hurricanes, extreme low/high temperatures, high humidities
+load_dotenv()
+googleAPIKey = os.getenv('googleAPIKey')
+weathermapkey = os.getenv('weathermapkey')
 
 def calc(temp, wspeed, fcast, humid, re):
   rating = re
@@ -126,10 +51,62 @@ def calc(temp, wspeed, fcast, humid, re):
   msglist.append(message)
   return msglist
 
-rati = 10
-sevenDayForecast = []
+flights = flightFinder.flightData
+print("Enter Flight number: \nExample: DAL748")
+def algod(airlineCode):
+    airlineCity = ""
+    with open('weatherAPI/Airport Codes by Country - Airport Codes List .csv', newline='') as csvfile:
+        reader = csv.reader(csvfile)
+        for row in reader:
+            if (row[2] == airlineCode):
+                airlineCity = row[0]
+                break
+    
+    geocodingAPIGrab = requests.get(f'https://maps.googleapis.com/maps/api/geocode/json?address=' + airlineCity + '&key=' + googleAPIKey)
+    jsonconvert = geocodingAPIGrab.json()
 
-for i in range(0, 7):
-    sevenDayForecast.append(calc(temperatures[i],windSpeeds[i],forecasts[i],humidities[i],rati))
+    longitude = "%.4f" % jsonconvert['results'][0]['geometry']['location']['lng']
+    latitude = "%.4f" % jsonconvert['results'][0]['geometry']['location']['lat']
 
-print(sevenDayForecast)
+    weatherAPIGrab = requests.get('https://api.weather.gov/points/' + latitude + "," + longitude)
+    weatherJSON = weatherAPIGrab.json()
+
+    forecastAPIGrab = requests.get(weatherJSON['properties']['forecast'])
+    forecastJSON = forecastAPIGrab.json()
+
+    temperatures = []
+    windSpeeds = []
+    forecasts = []
+    windDir = []
+    humidities = []
+
+    # 
+    # LISTS OF TEMPS, WIND SPEEDS, FORECASTS, WIND DIRECTION ARE ORGANIZED STARTING WITH
+    # THIS AFTERNOON, TONIGHT, TOMORROW AFTERNOON, TOMORROW NIGHT, ... FOR A WEEK 
+    # 
+
+    for i in range(0,7):
+        windSpeeds.append(forecastJSON['properties']['periods'][i*2]['windSpeed'])
+        temperatures.append(forecastJSON['properties']['periods'][i*2]['temperature'])
+        forecasts.append(forecastJSON['properties']['periods'][i*2]['detailedForecast'])
+        windDir.append(forecastJSON['properties']['periods'][i*2]['windDirection'])
+
+    openWeatherAppAPIGrab = requests.get(f'https://api.openweathermap.org/data/3.0/onecall?lat=' + latitude + '&lon=' + longitude + '&exclude=minutely,hourly,alerts,current&units=imperial&appid=' + weathermapkey)
+    openJSON = openWeatherAppAPIGrab.json()
+
+    for i in range(0,7):
+        humidities.append(openJSON['daily'][i]['humidity'])
+
+    # humidities will be 0-7, 0 being the current day
+
+    # temperatures, windSpeeds, forecasts, windDir, humidities
+    # 
+    # snow, hurricanes, extreme low/high temperatures, high humidities
+
+    rati = 10
+    sevenDayForecast = []
+
+    for i in range(0, 7):
+        sevenDayForecast.append(calc(temperatures[i],windSpeeds[i],forecasts[i],humidities[i],rati))
+
+    return sevenDayForecast
