@@ -74,11 +74,14 @@ const routeChange = () =>{
                 <div>
                   <label>Enter Your Flight Number <br />
                     <input name="flightnum" placeholder='Ex. 748' value={flightNum} onChange={(event) => setFlightNum(event.target.value)}/>
-                    <p>{flightNum}</p>
+                
+                
                   </label>
+                  </div>
+                  <div>
                   <label>Enter the Date of Flight <br />
                     <input name="date" placeholder='Ex. 1/29/2023' value={date} onChange={(event) => setDate(event.target.value)}/>
-                    <p>{date}</p>
+                    
                   </label>
                   <button type='submit' onClick={submit}>Submit</button>
                 </div>
