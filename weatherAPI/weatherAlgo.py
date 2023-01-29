@@ -1,5 +1,6 @@
 import requests
 import json
+#import censusgeocode as cg
 import csv
 from dotenv import load_dotenv
 import os
@@ -15,6 +16,9 @@ def calc(temp, wspeed, fcast, humid, re):
   if (temp >= 114):
     rating = rating - 4
     message.append("Temperatures above 114 can cause cancellations")
+  if (temp <= 32 and humid > 90):
+    rating = rating - 5
+    message.append("Low temperatures and high humidity can cause icing which may cause cancellations")
   if (temp >= 110 ) and (temp < 114):
     rating = rating - 1
     message.append("Temperature above 110 is low risk")
@@ -44,6 +48,10 @@ def calc(temp, wspeed, fcast, humid, re):
   if ('thunderstorms' in fcast):
     rating = rating - 2
     message.append("Presence of thunderstorms could cause delays")
+  if ('rain' in fcast):
+    rating = rating - 1
+    message.append("Presence of rain could cause delays")
+  
 
     # ADD STUFF TO ALGORITHM HEHE HAHA
 
@@ -52,9 +60,10 @@ def calc(temp, wspeed, fcast, humid, re):
   msglist.append(message)
   return msglist
 
+
 def algod(airlineCode):
     airlineCity = ""
-    with open('weatherAPI/Airport Codes by Country - Airport Codes List .csv', newline='') as csvfile:
+    with open('/home/lucasman223/tamuhack23/tamu23/weatherAPI/Airport Codes by Country - Airport Codes List .csv', newline='') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
             if (row[2] == airlineCode):
