@@ -20,11 +20,12 @@ for i in range(len(listJSON)):
 airlineCodeOne = ""
 airlineCodeTwo = ""
 for i in range(0,100):
-    if (flightNumber in weatherAlgo.flights[i][0]):
-        airlineCodeOne = weatherAlgo.flights[i][1]
-        airlineCodeTwo = weatherAlgo.flights[i][2]
+    if (flightNumber in flightData[i][0]):
+        airlineCodeOne = flightData[i][1]
+        airlineCodeTwo = flightData[i][2]
 
 print(airlineCodeOne + ' ' + airlineCodeTwo)
+
 print(weatherAlgo.algod(airlineCodeOne)[0])
 print(weatherAlgo.algod(airlineCodeTwo)[0])
 
@@ -32,4 +33,3 @@ print(weatherAlgo.algod(airlineCodeTwo)[0])
 # aa json file organizes based on locations of arr/dep
 # save index after remembering better date
 # call another get on that specific date to get new flight number on better day
-

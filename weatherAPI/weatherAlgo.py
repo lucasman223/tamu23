@@ -1,6 +1,5 @@
 import requests
 import json
-import censusgeocode as cg
 import csv
 from dotenv import load_dotenv
 import os
@@ -53,8 +52,6 @@ def calc(temp, wspeed, fcast, humid, re):
   msglist.append(message)
   return msglist
 
-flights = flightFinder.flightData
-print("Enter Flight number: \nExample: DAL748")
 def algod(airlineCode):
     airlineCity = ""
     with open('weatherAPI/Airport Codes by Country - Airport Codes List .csv', newline='') as csvfile:
