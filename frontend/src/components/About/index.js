@@ -2,6 +2,7 @@ import './index.scss';
 import React, {Fragment, useState} from 'react'
 
 
+
 const About = () => {
     const [ toggleTab, setToggleTab] = useState()
     const toggleState = (index) =>{
@@ -17,7 +18,7 @@ const About = () => {
                     <div className="column">
 
                         <div className="about-initial">
-                                    <h2>About Us</h2>
+                                    <h2>Flight Forecast</h2>
                                     <p>INPUT WHO WE ARE AND WHAT THE WEBSITE IS</p>
                         </div>
                     </div>
