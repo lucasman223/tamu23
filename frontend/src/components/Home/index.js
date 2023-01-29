@@ -5,6 +5,7 @@ import Layout from '../Layout';
 import { useNavigate } from "react-router-dom";
 
 
+
 import { useSpring, animated } from '@react-spring/web'
 
 const Home = () => {
@@ -37,6 +38,7 @@ const routeChange = () =>{
                 {/* FIND HOW TO INCREASE WIDTH SO ITS NOT AS VERTICAL */}
                 </h2></animated.div>
                 </div>
+                
                 <div className="form-group">
                 <form>
                   <label>Enter Your Flight Number <br />
@@ -44,7 +46,7 @@ const routeChange = () =>{
                   </label>
                   <button type='submit' onClick={routeChange}>Submit</button>
                 </form>
-          
+              
             </div>
         </div>
         </>

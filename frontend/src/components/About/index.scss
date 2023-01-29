@@ -32,6 +32,7 @@
     padding: 10px 16px;
     border-radius: 4px;
     color: aliceblue;
+    cursor: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' style='font-size: 40px'><text y='32'>🛫</text></svg>"), auto;
 }
 .about-initial h2{
     font-size: 50px;
@@ -41,10 +42,19 @@
     font-size: 20px;
     font-weight: 500;
 }
+.img{
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 300px;
+    width: 300px;
+    cursor: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' style='font-size: 40px'><text y='32'>🛫</text></svg>"), auto;
+}
 .content{
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     display: none;
+    cursor: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' style='font-size: 40px'><text y='32'>🛫</text></svg>"), auto;
 }
 .active-content{
     display: block;
@@ -74,7 +84,7 @@
     margin-bottom: 1rem;
 }
 .content p{
-    padding-bottom: 1rem;
+    //padding-bottom: 1rem;
     font-size: 16px;
     line-height: 1.8;
     font-weight: 400;
