@@ -1,20 +1,30 @@
 .home-page {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-column-gap: 2rem;
+    // grid-template-columns: 1fr 2fr;
+    // grid-column-gap: 2rem;
 
     .text-zone{
         position: absolute;
-        left: 10%;
+        left: 5%;
         top: 20%;
-        width: 40%;
         
+        
+        h1{
+            font-size: 80px;
+        }
+        
+        h2{
+            position: absolute;
+            font-size: 30px;
+            width: 100%;
+        }
         }
         
     .form-group{
+        font-size: 25px;
         position: absolute;
         text-align: center;
-        left: 60%;
+        left: 65%;
         top: 40%;
     }
 
