@@ -1,9 +1,151 @@
-.about-page {
-    
-    position: absolute;
-    left: 10%;
-    top: 50%;
-    transform: translateY(-50%);
+.about{
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    padding: 5rem 3rem 3rem 3rem;
+    cursor: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' style='font-size: 40px'><text y='32'>🛫</text></svg>"), auto;
+}
+.row{
+    display: flex;
+    justify-content: space-around;
+}
+.row .column{
     width: 40%;
+}
+.column .tabs{
+    display: flex;
+}
+.single-tab{
+    margin-right: 20px;
+    cursor: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' style='font-size: 40px'><text y='32'>🛬</text></svg>"), auto;
+}
+.single-tab h2{
+    display:block;
+    padding: 10px 16px;
+    border-radius: 4px;
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 600;
+}
+.about-initial{
+    display:block;
+    padding: 10px 16px;
+    border-radius: 4px;
+    color: aliceblue;
+}
+.about-initial h2{
+    font-size: 50px;
+    font-weight: 700;
+}
+.about-initial p{
+    font-size: 20px;
+    font-weight: 500;
+}
+.content{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    display: none;
+}
+.active-content{
+    display: block;
+}
+.active-tab{
+    position: relative;
+}
+.active-tab::before{
+    position:absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: #18dcff transparent transparent transparent;
+}
+.active-tab h2{
+    background: #18dcff;
+}
+.content h2{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+.content p{
+    padding-bottom: 1rem;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 400;
+    color: #999;
+}
+.content h3{
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+// Skills row
+.skill-row{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.skill-column{
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+.progress-wrap h3{
+    font-size: 14px !important;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.progress{
+    height: 8px;
+    overflow: visible;
+}
+.progress-bar{
+    width: 80%;
+    height: 8px;
+    line-height: 1.2;
+    position: relative;
+    border-radius: 2px;
+}
+.progress-bar span{
+    position: absolute;
+    top: -30px;
+    right: 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+// Experience
+.exp-column h3{
+    margin-bottom: 10px;
+}
+.exp-column span{
+    font-weight: 500;
+}
+.exp-column p{
+    margin-top: 10px;
+}
+@media screen and (max-width:768px) {
+    .about{
+        padding: 2rem 1rem 3rem 1rem;
+    }
+    .row{
+        display: flex;
+        flex-direction: column;
+    }
+    .row .column{
+        width: 100%;
+    }
+    .tabs{
+        padding-top: 3rem;
+    }
+    .skill-row{
+        grid-template-columns: 1fr;
+    }
     
 }
