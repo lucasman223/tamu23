@@ -14,7 +14,8 @@ const Home = () => {
     return (
             
 
-            <><Layout /><div className='container home-page'>
+            <><Layout />
+          <div className='container home-page'>
             <div className='text-zone'>
             <animated.div
             style={{
@@ -25,8 +26,16 @@ const Home = () => {
             }}
           ><h1>Product Name, SHort Description of Prigram
                 </h1></animated.div>
+
+                <div className="form-group">
+                <form>
+                  <label>Flight Number
+                    <input name="flightnum"/>
+                  </label>
+                  <button type='submit'>Submit</button>
+                </form>
             </div>
-            
+            </div>
         </div>
         </>
     )

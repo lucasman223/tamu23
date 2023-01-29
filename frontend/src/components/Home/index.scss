@@ -1,4 +1,7 @@
 .home-page {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 2rem;
 
     .text-zone{
         position: absolute;
@@ -6,39 +9,41 @@
         top: 50%;
         transform: translateY(-50%);
         width: 40%;
-        animation: fadeIn 1s 2s backwards;
+        
     
         h1 {
-        color: #fff;
-        font-size: 35px;
-        width: 320px;
-        margin: 0;
-        animation: fadeIn 1s 2s backwards;
+            color: #fff;
+            font-size: 35px;
+            width: 320px;
+            margin: 0;
         
-        &::before{
-            content: '<h1>';
-            color: #ffd700;
-            font-size: 18px;
-            position: absolute;
-            margin-top: -40px;
-            left: 15px;
-            opacity: 0.6;
-            animation: fadeIn 1s 2s backwards;
-
-        }
-
-        &::after{
-            content: '<h1/>';
-            color: #ffd700;
-            font-size: 18px;
-            position: absolute;
-            margin-top: 18px;
-            margin-left: 20px;
-            animation: fadeIn 1s 4s backwards;
+        
+            &::before{
+                content: '<h1>';
+                color: #ffd700;
+                font-size: 18px;
+                position: absolute;
+                margin-top: -40px;
+                left: 15px;
+                opacity: 0.6;
             
-            opacity: 0.6;
 
+            }
+
+            &::after{
+                content: '<h1/>';
+                color: #ffd700;
+                font-size: 18px;
+                position: absolute;
+                margin-top: 18px;
+                margin-left: 20px;
+                
+                
+                opacity: 0.6;
+
+            }
         }
     }
-}
+
+    
 }
