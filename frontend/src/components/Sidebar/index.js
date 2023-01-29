@@ -1,7 +1,7 @@
 import './index.scss'
 import LogoP from '../../assets/LogoP.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faUser, faUserLarge } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 
@@ -12,7 +12,7 @@ const Sidebar = () => (
         </a>
         
         <a href='/About' className='About'>
-            <FontAwesomeIcon icon={faUser} color= "#4d4d4e" />
+            <FontAwesomeIcon icon={faUserLarge} color= "#4d4d4e" />
         </a>
 
         <a href='https://github.com/lucasman223/tamu23' className='About'>
