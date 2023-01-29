@@ -33,7 +33,7 @@ const Home = () => {
                   <label>Enter Your Flight Number <br />
                     <input name="flightnum" placeholder='Ex. DAL748'/>
                   </label>
-                  <button type='submit' onClick={request.get('http://google.com/')}>Submit</button>
+                  <button type='submit' >Submit</button>
                 </form>
           
             </div>

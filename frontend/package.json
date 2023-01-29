@@ -19,11 +19,7 @@
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.0",
     "react-router-dom": "^6.8.0",
-<<<<<<< HEAD
     "react-scripts": "5.0.1",
-=======
-    "react-scripts": "^5.0.1",
->>>>>>> 3b94470f8afc8a2c4dbb62e93cfd7797ce09b3f5
     "request": "^2.88.2",
     "sass": "^1.57.1",
     "web-vitals": "^2.1.4"

@@ -1,9 +1,6 @@
 import './index.scss';
-<<<<<<< HEAD
 import React, {Fragment, useState} from 'react'
 
-=======
->>>>>>> 3b94470f8afc8a2c4dbb62e93cfd7797ce09b3f5
 
 const About = () => {
     const [ toggleTab, setToggleTab] = useState()
