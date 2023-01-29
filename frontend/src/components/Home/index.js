@@ -3,8 +3,13 @@ import Sidebar from '../Sidebar';
 import { Outlet } from 'react-router-dom'
 import Layout from '../Layout';
 
+
 import { useSpring, animated } from '@react-spring/web'
 
+const PythonShell = require('python-shell');
+const options = {
+  scriptPath: 'path/to/python/script'
+};
 const Home = () => {
     const springs = useSpring({
         from: { x: -3000 },
@@ -33,7 +38,7 @@ const Home = () => {
                   <label>Enter Your Flight Number <br />
                     <input name="flightnum" placeholder='Ex. DAL748'/>
                   </label>
-                  <button type='submit' onClick={request.get('http://google.com/')}>Submit</button>
+                  <button type='submit'>Submit</button>
                 </form>
           
             </div>
