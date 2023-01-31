@@ -1,4 +1,7 @@
 from flask_restful import Api, Resource, reqparse
+from main.py import *
+from weatherAlgo.py import *
+
 
 class HelloApiHandler(Resource):
   def get(self):
@@ -33,3 +36,6 @@ class HelloApiHandler(Resource):
     final_ret = {"status": "Success", "message": message}
 
     return final_ret
+
+
+

@@ -16,11 +16,19 @@
         font-size: 30px;
 
     }
+
+    .rec-zone {
+        position: absolute;
+        left: 10%;
+        top:80%;
+        width: 50%;
+        font-size: 30px;
+    }
     .bullet-zone{
         position: absolute;
-        left: 15%;
-        top:25%;
-        width: 90%;
+        left: -10%;
+        top:5%;
+        width: 110%;
         height: 100%;
         font-size: 30px;
     }

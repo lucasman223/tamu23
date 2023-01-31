@@ -1,6 +1,6 @@
 import './index.scss';
 import React, {Fragment, useState} from 'react'
-
+import cartoonplane from '../../assets/cartoonplane.jpg'
 
 
 const About = () => {
@@ -19,9 +19,13 @@ const About = () => {
 
                         <div className="about-initial">
                                     <h2>Flight Forecast</h2>
-                                    <p>INPUT WHO WE ARE AND WHAT THE WEBSITE IS</p>
+                                    <p>This website allows a user to input a date and flight number and it will display a rating on the risk of the flight being delayed based on the a variety of factors.</p>
+                                    <div>
+                                        <img src={cartoonplane} alt="img" width={500} height={500}/>
+                                    </div>
                         </div>
                     </div>
+                    
 
                     <div className="column">
                         <div className="tabs">

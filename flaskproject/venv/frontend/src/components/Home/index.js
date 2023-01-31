@@ -80,10 +80,11 @@ const routeChange = () =>{
                   </div>
                   <div>
                   <label>Enter the Date of Flight <br />
-                    <input name="date" placeholder='Ex. 1/29/2023' value={date} onChange={(event) => setDate(event.target.value)}/>
+                    <input name="date" placeholder='Ex. YYYY-MM-DD' value={date} onChange={(event) => setDate(event.target.value)}/>
                     
                   </label>
                   <button type='submit' onClick={submit}>Submit</button>
+                  <button type='Results' onClick={routeChange}>Results</button>
                 </div>
           
             </div>

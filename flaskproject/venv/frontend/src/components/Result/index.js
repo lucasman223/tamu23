@@ -22,10 +22,12 @@ const Result = () =>
         {trails.map(props => (
         <animated.div style={props}>
         <div className='percent-zone'>
-            <h1>10/10</h1>
+            <h1>1/10</h1>
         </div>
-        <div className='text-zone'>Risk of <br /> Delay/Cancellation
+        <div className='text-zone'>Risk of <br /> Delay/Cancellation <br/> for Flight 7945
         </div>
+        <div className='rec-zone'>Recommended Flight: <br/> Flight 8501</div>
+
         </animated.div>))}
         
         <animated.div
@@ -36,10 +38,14 @@ const Result = () =>
               ...springs,
             }}>
         <div className='bullet-zone'>
-          BUllet point 1 dwdiwjidw dwi diw diwdiw diw diwdwid <br />
-          BUllet point 2  dw od wo owo wdow dowod wodwod<br />
-          BUllet point 3 <br />
-          BUllet point 4
+          DFW <br />
+          A slight chance of rain showers after noon. Mostly cloudy. High near 51, with temperatures falling to around 39 in the afternoon. <br />
+          North northwest wind 10 to 15 mph, with gusts as high as 25 mph.<br />
+          Chance of precipitation is 20%. <br /> <br/>
+          PHL <br/>
+          A chance of rain showers after 1pm. Cloudy, with a high near 52. <br/>
+          Southwest wind 10 to 15 mph. Chance of precipitation is 30%.  <br/>
+          New rainfall amounts less than a tenth of an inch possible.',<br/>
         </div>
         </animated.div>
         
